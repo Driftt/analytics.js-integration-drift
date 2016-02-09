@@ -1,6 +1,6 @@
 {
-  "name": "analytics.js-integration-customerio",
-  "description": "The Customerio analytics.js integration.",
+  "name": "analytics.js-integration-drift",
+  "description": "The Drift analytics.js integration.",
   "author": "Segment <friends@segment.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -12,13 +12,13 @@
     "npm": ">=2.7.0"
   },
   "repository": {
-    "url": "https://github.com/segment-integrations/analytics.js-integration-customerio.git",
+    "url": "https://github.com/segment-integrations/analytics.js-integration-drift.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/segment-integrations/analytics.js-integration-customerio/issues"
+    "url": "https://github.com/segment-integrations/analytics.js-integration-drift/issues"
   },
-  "homepage": "https://segment.com/docs/integrations/customerio/",
+  "homepage": "https://segment.com/docs/integrations/drift/",
   "dependencies": {},
   "devDependencies": {
     "duo": "0.12.x",

@@ -1,8 +1,8 @@
 {
-  "name": "analytics.js-integration-customerio",
-  "repo": "segment-integrations/analytics.js-integration-customerio",
-  "description": "The Customerio analytics.js integration.",
-  "version": "1.0.4",
+  "name": "analytics.js-integration-drift",
+  "repo": "segment-integrations/analytics.js-integration-drift",
+  "description": "The Drift analytics.js integration.",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "lib/index.js",
   "dependencies": {

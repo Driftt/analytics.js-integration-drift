@@ -3,39 +3,39 @@ var Analytics = require('analytics.js-core').constructor;
 var integration = require('analytics.js-integration');
 var sandbox = require('clear-env');
 var tester = require('analytics.js-integration-tester');
-var Driftt = require('../lib/');
+var Drift = require('../lib/');
 
-describe('Driftt', function() {
+describe('Drift', function() {
   var analytics;
-  var driftt;
+  var drift;
   var options = {
     embedId: 'buvw2r8z43np-dev'
   };
 
   beforeEach(function() {
     analytics = new Analytics();
-    driftt = new Driftt(options);
-    analytics.use(Driftt);
+    drift = new Drift(options);
+    analytics.use(Drift);
     analytics.use(tester);
-    analytics.add(driftt);
+    analytics.add(drift);
   });
 
   afterEach(function() {
     analytics.restore();
     analytics.reset();
-    driftt.reset();
+    drift.reset();
     sandbox();
   });
 
   it('should have the right settings', function() {
-    analytics.compare(Driftt, integration('Driftt')
-      .global('driftt')
+    analytics.compare(Drift, integration('Drift')
+      .global('drift')
       .option('embedId', ''));
   });
 
   describe('before loading', function() {
     beforeEach(function() {
-      analytics.stub(driftt, 'load');
+      analytics.stub(drift, 'load');
     });
 
     describe('#initialize', function() {
@@ -47,14 +47,14 @@ describe('Driftt', function() {
 
       it('should call #load', function() {
         analytics.initialize();
-        analytics.called(driftt.load);
+        analytics.called(drift.load);
       });
     });
   });
 
   describe('loading', function() {
     it('should load', function(done) {
-      analytics.load(driftt, done);
+      analytics.load(drift, done);
     });
   });
 

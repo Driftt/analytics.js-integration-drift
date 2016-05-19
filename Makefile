@@ -71,7 +71,7 @@ lint: node_modules
 test-phantomjs: node_modules build.js
 	@$(DUOT) phantomjs $(TESTS_DIR) args: \
 		--ignore-ssl-errors=true --path node_modules/.bin/phantomjs
-.PHONY: test
+.PHONY: test-phantomjs
 
 # Test locally in the browser.
 test-browser: node_modules build.js
@@ -89,5 +89,5 @@ test-sauce: node_modules build.js
 .PHONY: test-sauce
 
 # Test shortcut.
-test: 
+test: lint test-phantomjs
 .PHONY: test

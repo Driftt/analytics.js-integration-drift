@@ -106,27 +106,5 @@ describe('Drift', function() {
         analytics.called(window.drift.track, 'event', { date: Math.floor(date / 1000) });
       });
     });
-
-    describe('#page', function() {
-      beforeEach(function() {
-        analytics.stub(window.drift, 'track');
-      });
-
-      it('should send an event', function() {
-        analytics.track('event');
-        analytics.called(window.drift.track, 'event');
-      });
-
-      it('should send an event and properties', function() {
-        analytics.track('event', { property: true });
-        analytics.called(window.drift.track, 'event', { property: true });
-      });
-
-      it('should convert dates to unix timestamps', function() {
-        var date = new Date();
-        analytics.track('event', { date: date });
-        analytics.called(window.drift.track, 'event', { date: Math.floor(date / 1000) });
-      });
-    });
   });
 });

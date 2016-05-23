@@ -69,9 +69,9 @@ describe('Drift', function() {
         analytics.stub(window.driftt, 'identify');
       });
 
-      it('should not send an id without an email', function() {
+      it('should send an id without an email', function() {
         analytics.identify('id');
-        analytics.didNotCall(window.driftt.identify);
+        analytics.called(window.driftt.identify, 'id');
       });
 
       it('should send an id with an email', function() {

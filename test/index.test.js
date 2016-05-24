@@ -106,5 +106,26 @@ describe('Drift', function() {
         analytics.called(window.drift.track, 'event', { date: Math.floor(date / 1000) });
       });
     });
+
+    describe('#page', function() {
+      beforeEach(function() {
+        analytics.stub(window.drift, 'page');
+        analytics.stub(window.drift, 'identify');
+      });
+
+      it('should send an page view event and should not send another identify event', function() {
+        analytics.identify('id');
+        analytics.calledOnce(window.drift.identify);
+
+        analytics.page('page');
+        analytics.called(window.drift.page, 'page');
+        analytics.calledOnce(window.drift.identify);
+      });
+
+      it('should send an page view event and an identify event', function() {
+        analytics.page('page');
+        analytics.calledOnce(window.drift.identify, 'id');
+      });
+    });
   });
 });

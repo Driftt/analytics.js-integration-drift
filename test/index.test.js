@@ -113,17 +113,34 @@ describe('Drift', function() {
         analytics.stub(window.drift, 'identify');
       });
 
-      it('should send an page view event and should not send another identify event', function() {
+      it('should send a page view event but not an identify event', function() {
+        // track a page view
+        analytics.page('page');
+
+        analytics.called(window.drift.page, 'page');
+        analytics.didNotCall(window.drift.identify);
+      });
+
+      it('should send an page view event but only one identify event', function() {
+        // set the user id by calling identify
         analytics.identify('id');
         analytics.calledOnce(window.drift.identify);
 
+        // track a page view
         analytics.page('page');
+
         analytics.called(window.drift.page, 'page');
         analytics.calledOnce(window.drift.identify);
       });
 
-      it('should send an page view event and an identify event', function() {
+      it('should send a page view event and an identify event', function() {
+        // set the user id explicitly
+        analytics.user().id('id');
+
+        // track a page view
         analytics.page('page');
+
+        analytics.called(window.drift.page, 'page');
         analytics.calledOnce(window.drift.identify, 'id');
       });
     });

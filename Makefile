@@ -70,7 +70,7 @@ lint: node_modules
 # Test locally in PhantomJS.
 test-phantomjs: node_modules build.js
 	@$(DUOT) phantomjs $(TESTS_DIR) args: \
-		--ignore-ssl-errors=true --path node_modules/.bin/phantomjs
+		--ignore-ssl-errors=true --ssl-protocol=tlsv1 --path node_modules/.bin/phantomjs
 .PHONY: test-phantomjs
 
 # Test locally in the browser.

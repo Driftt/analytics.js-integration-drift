@@ -67,6 +67,8 @@ lint: node_modules
 	@$(ESLINT) $(SRCS) $(TESTS)
 .PHONY: lint
 
+phantomjs-version: phantomjs -v
+
 # Test locally in PhantomJS.
 test-phantomjs: node_modules build.js
 	@$(DUOT) phantomjs $(TESTS_DIR) args: \
@@ -89,5 +91,5 @@ test-sauce: node_modules build.js
 .PHONY: test-sauce
 
 # Test shortcut.
-test: lint test-phantomjs
+test: lint phantomjs-version test-phantomjs
 .PHONY: test

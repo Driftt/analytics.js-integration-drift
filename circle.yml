@@ -1,6 +1,8 @@
 machine:
   node:
     version: 0.12
+  pre:
+    - sudo curl --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1
 dependencies:
   pre:
     - echo "github.com,192.30.252.*,192.30.253.*,192.30.254.*,192.30.255.* ssh-rsa $(ssh-keyscan -t rsa github.com | cut -d ' ' -f 3-)" >> ~/.ssh/known_hosts

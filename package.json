@@ -27,6 +27,6 @@
     "eslint-config-segment": "^1.0.10",
     "mocha": "^2.2.5",
     "mocha-phantomjs": "segmentio/mocha-phantomjs#master",
-    "phantomjs": "^1.9.17"
+    "phantomjs-prebuilt": "^2.1.7"
   }
 }

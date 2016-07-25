@@ -1,3 +1,13 @@
+
+2.0.1 / 2016-07-25
+==================
+
+  * Merge pull request #2 from segment-integrations/sync_partner_repo
+  * Add back changes lost during duo->browserify migration
+  * Update CONTRIBUTING.md
+  * Move Sauce Labs credentials into circle.yml
+  * Update Karma to 1.1.0
+
 2.0.0 / 2016-06-21
 ==================
 

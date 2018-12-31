@@ -84,6 +84,41 @@ describe('Drift', function() {
         analytics.identify('id', { email: 'blackwidow@shield.gov' });
         analytics.called(window.drift.identify, 'id', { email: 'blackwidow@shield.gov' });
       });
+
+      it('should send id, traits and integration options', function() {
+        analytics.identify(
+          'id',
+          { email: 'blackwidow@shield.gov' },
+          { drift: { signedIdentity: 'signedidentityjwt' } }
+        );
+
+        analytics.called(
+          window.drift.identify,
+          'id',
+          { email: 'blackwidow@shield.gov' },
+          { signedIdentity: 'signedidentityjwt' }
+        );
+      });
+
+      it('should send only integration options for drift', function() {
+        analytics.identify(
+          'id',
+          { email: 'blackwidow@shield.gov' },
+          { otherintegration: { option: '123' }, drift: { option: 'test' } }
+        );
+
+        analytics.called(window.drift.identify, 'id', { email: 'blackwidow@shield.gov' }, { option: 'test' });
+      });
+
+      it('should send empty object as integration options if they are undefined', function() {
+        analytics.identify(
+          'id',
+          { email: 'blackwidow@shield.gov' },
+          { otherintegration: { option: '123' }, drift: undefined }
+        );
+
+        analytics.called(window.drift.identify, 'id', { email: 'blackwidow@shield.gov' }, {});
+      });
     });
 
     describe('#track', function() {

@@ -1,3 +1,20 @@
+
+2.0.1 / 2016-07-25
+==================
+
+  * Merge pull request #2 from segment-integrations/sync_partner_repo
+  * Add back changes lost during duo->browserify migration
+  * Update CONTRIBUTING.md
+  * Move Sauce Labs credentials into circle.yml
+  * Update Karma to 1.1.0
+
+2.0.0 / 2016-06-21
+==================
+
+  * Remove Duo compatibility
+  * Add CI setup (coverage, linting, cross-browser compatibility, etc.)
+  * Update eslint configuration
+
 1.0.9 / 2016-05-07
 ==================
 
